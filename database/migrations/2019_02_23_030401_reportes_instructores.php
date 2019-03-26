@@ -14,24 +14,26 @@ class ReportesInstructores extends Migration
     public function up()
     {
         Schema::create('reportes_instructores', function (Blueprint $table) {
+
             $table->increments('id');
+
             $table->string('NombreInstructor')->nullable();
             $table->string('ApellidoInstructor')->nullable();
             $table->string('EstadoInstructor')->nullable();
             $table->string('Competencia')->nullable();
-            $table->string('FechaInicioProgramacion')->nullable();
-            $table->string('FechaFinProgramacion')->nullable();
-            $table->string('HorasProgramadas')->nullable();
+            $table->longText('FechaInicioProgramacion')->nullable();
+            $table->longText('FechaFinProgramacion')->nullable();
+            $table->longText('HorasProgramadas')->nullable();
             $table->string('codigoFicha')->nullable();
+            $table->integer('reporte_instructor_header_id')->unsigned()->nullable();
+
+            $table->foreign('reporte_instructor_header_id')->references('id')->on('reporte_instructor_headers');
+
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         //

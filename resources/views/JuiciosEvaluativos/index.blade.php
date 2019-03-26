@@ -36,16 +36,8 @@
                                 <th>competencia</th>
                                 <th>resultadoAprendizaje</th>
                                 <th>juicioEvaluacion</th>
-                                <th>funcionarioRegistroJuicioEvaluativo</th>
-                                <th>fechaReporte</th>
-                                <th>ficha</th>
-                                <th>codigo</th>
-                                <th>version</th>
-                                <th>denominacion</th>
-                                <th>estadoFicha</th>
-                                <th>fechaInicio</th>
                             </tr>
-                            @foreach($juicioEvaluativo as $reporte)
+                            @foreach($reporteJuicios  as $reporte)
                                 <tr>
                                     <td>{{$reporte->TipoDocumento}}</td>
                                     <td>{{$reporte->NumeroDocumento}}</td>
@@ -55,14 +47,6 @@
                                     <td>{{$reporte->competencia}}</td>
                                     <td>{{$reporte->resultadoAprendizaje}}</td>
                                     <td>{{$reporte->juicioEvaluacion}}</td>
-                                    <td>{{$reporte->funcionarioRegistroJuicioEvaluativo}}</td>
-                                    <td>{{$reporte->fechaReporte}}</td>
-                                    <td>{{$reporte->ficha}}</td>
-                                    <td>{{$reporte->codigo}}</td>
-                                    <td>{{$reporte->version}}</td>
-                                    <td>{{$reporte->denominacion}}</td>
-                                    <td>{{$reporte->estadoFicha}}</td>
-                                    <td>{{$reporte->fechaInicio}}</td>
                                 </tr>
                             @endforeach
                         </table>

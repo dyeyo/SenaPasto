@@ -18,23 +18,13 @@ class CreateJuiciosEvaluativosTable extends Migration
             $table->string('TipoDocumento')->nullable();
             $table->string('NumeroDocumento')->nullable();
             $table->string('nombres')->nullable();
-            $table->string('apelldios')->nullable();
+            $table->string('apellidos')->nullable();
             $table->string('estado')->nullable();
-            $table->string('competencia')->nullable();
-            $table->string('resultadoAprendizaje')->nullable();
+            $table->longText('competencia')->nullable();
+            $table->longText('resultadoAprendizaje')->nullable();
             $table->string('juicioEvaluacion')->nullable();
             $table->string('funcionarioRegistroJuicioEvaluativo')->nullable();
-            $table->string('fechaReporte:')->nullable();
-            $table->string('ficha')->nullable();
-            $table->string('codigo')->nullable();
-            $table->string('version')->nullable();
-            $table->string('denominacion')->nullable();
-            $table->string('estadoFicha')->nullable();
-            $table->string('fechaInicio')->nullable();
-            $table->string('fechaFin')->nullable();
-            $table->string('modalidadFormación')->nullable();
-            $table->string('regional')->nullable();
-            $table->string('centroFormacion')->nullable();
+
             $table->timestamps();
         });
     }
