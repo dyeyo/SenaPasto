@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../dist/bootstrap-table.min.css">
+</head>
+<body>
+
+<table class="table table-striped" id="tabla" data-target="table"
+       data-url="http://127.0.0.1:8000/getdata"
+       data-sort-name="stargazers_count"
+       data-sort-orden="desc"
+       data-show-columns="true"
+       data-pagination="true"
+       data-show-export="true"
+       data-search="true">
+    <thead>
+    <tr>
+        <th data-aling="center" data-sorteable="true" data-flied="NombreInstructor">
+            NombreInstructor
+        </th>
+        <th data-aling="center" data-sorteable="true" data-flied="ApellidoInstructor">
+            ApellidoInstructor
+        </th>
+        <th data-aling="center" data-sorteable="true" data-flied="EstadoInstructor">
+            EstadoInstructor
+        </th>
+        <th data-aling="center" data-sorteable="true" data-flied="Competencia">Competencia</th>
+        <th data-aling="center" data-sorteable="true" data-flied="FechaInicioProgramacion">
+            FechaInicioProgramacion
+        </th>
+        <th data-aling="center" data-sorteable="true" data-flied="FechaFinProgramacion">
+            FechaFinProgramacion
+        </th>
+        <th data-aling="center" data-sorteable="true" data-flied="HorasProgramadas">
+            HorasProgramadas
+        </th>
+    </tr>
+    </thead>
+
+</table>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="../dist/bootstrap-table.min.js"></script>
+</body>
+</html>

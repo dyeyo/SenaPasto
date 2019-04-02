@@ -24,6 +24,8 @@ class CreateJuiciosEvaluativosTable extends Migration
             $table->longText('resultadoAprendizaje')->nullable();
             $table->string('juicioEvaluacion')->nullable();
             $table->string('funcionarioRegistroJuicioEvaluativo')->nullable();
+            $table->integer('juicios_evaluativos_header_id')->unsigned();
+            $table->foreign('juicios_evaluativos_header_id')->references('id')->on('juicios_evaluativos_headers');
 
             $table->timestamps();
         });

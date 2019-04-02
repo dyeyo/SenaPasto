@@ -23,6 +23,7 @@ class CreateReporteInstructorHeadersTable extends Migration
             $table->string('horasTotalesEjecutadas');
             $table->string('horasTotalesPendientes');
             $table->string('fechaInicio');
+            $table->string('municipio');
             $table->string('fechaFin');
 
             $table->timestamps();

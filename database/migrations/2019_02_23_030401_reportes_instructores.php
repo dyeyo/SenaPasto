@@ -24,7 +24,6 @@ class ReportesInstructores extends Migration
             $table->longText('FechaInicioProgramacion')->nullable();
             $table->longText('FechaFinProgramacion')->nullable();
             $table->longText('HorasProgramadas')->nullable();
-            $table->string('codigoFicha')->nullable();
             $table->integer('reporte_instructor_header_id')->unsigned()->nullable();
 
             $table->foreign('reporte_instructor_header_id')->references('id')->on('reporte_instructor_headers');

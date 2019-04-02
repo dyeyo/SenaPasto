@@ -11,14 +11,33 @@
 |
 */
 
+Route::get('/', function () {
+    return view('auth.login');
+})->name('/')->middleware('guest');
 
-Route::get('/reporteInstructores', 'ReportesInstructoresController@index')->name('reporteInstructores');
-Route::get('/reporteInstructores/create/', 'ReportesInstructoresController@create')->name('crearReporteInstructores');
-Route::post('importar', 'ReportesInstructoresController@store')->name('importar');
-/**JUICIOS EVALUATIVOS*/
-Route::get('/juicios', 'JuiciosEvaluativosController@index')->name('juicios');
-Route::get('/importarJuicio/create/', 'ReportesInstructoresController@create')->name('crearimportarJuicio');
-Route::post('importarJuicio', 'JuiciosEvaluativosController@importar')->name('importarJuicio');
+Route::middleware(['auth'])->group(function (){
+
+    Route::get('/', 'ReportesInstructoresController@index')->name('reporteInstructores');
+
+    Route::get('/reporteInstructores', 'ReportesInstructoresController@index')->name('reporteInstructores');
+    Route::get('/reporteInstructores/create/', 'ReportesInstructoresController@create')->name('crearReporteInstructores');
+    Route::post('importar', 'ReportesInstructoresController@store')->name('importar');
+
+    Route::get("/getdata","ReportesInstructoresController@getdata");
+
+    /**JUICIOS EVALUATIVOS*/
+    Route::get('/juiciosEvaluativos', 'JuiciosEvaluativosController@index')->name('juiciosEvaluativos');
+    Route::get('/importarJuicio/create/', 'JuiciosEvaluativosController@create')->name('crearimportarJuicio');
+    Route::post('importarJuicio', 'JuiciosEvaluativosController@store')->name('importarJuicio');
+
+    Route::get("/getdataJuicio","JuiciosEvaluativosController@getdataJuicio");
+
+    /**REPORTES FICHAS*/
+    Route::get('/ReporteAprendicesFicha', 'ReporteAprendicesFicha@index')->name('ReporteAprendicesFicha');
+    Route::get('/crearReporteAprendicesFicha/create/', 'ReporteAprendicesFicha@create')->name('crearReporteAprendicesFicha');
+    Route::post('importarReporteAprendicesFicha', 'ReporteAprendicesFicha@store')->name('importarReporteAprendicesFicha');
+});
+
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+

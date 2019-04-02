@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReporteInstructorHeader extends Model
 {
-   protected $fillable=['ficha', 'nombrePrograma', 'centro', 'horasTotalesProgramadas',
+   protected $fillable=['ficha', 'nombrePrograma', 'centro','municipio', 'horasTotalesProgramadas',
        'horasTotalesEjecutadas', 'horasTotalesPendientes', 'fechaInicio', 'fechaFin'];
 
-    public function reportesInstructores()
-    {
+   public function reportesInstructores()
+   {
         return $this->hasMany('App\ReportesInstructores');
-    }
+   }
 }

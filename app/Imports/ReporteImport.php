@@ -2,23 +2,25 @@
 
 namespace App\Imports;
 
-use App\ReportesInstructores;
-use Illuminate\Foundation\Http\FormRequest;
-use Maatwebsite\Excel\Facades\Excel;
+
+use App\ReporteInstructorHeader;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 
-//use Maatwebsite\Excel\Concerns\ToModel;
 
 class ReporteImport implements ToCollection
 {
+    public function __construct(ReporteInstructorHeader $reporteHeader)
+    {
+        $this->reportInstructor = $reporteHeader;
+    }
 
     public function collection(Collection $rows)
     {
-        //$reporteInstructores=new ReportesInstructores;
-        foreach ($rows as $row)
-        {
-             ReportesInstructores::create([
+        $reportInstructor =  $this->reportInstructor;
+
+        $rows->each(function ($row) use ($reportInstructor) {
+            $reportInstructor->reportesInstructores()->create([
                 'NombreInstructor' => $row[0],
                 'ApellidoInstructor' => $row[1],
                 'EstadoInstructor' => $row[2],
@@ -27,6 +29,6 @@ class ReporteImport implements ToCollection
                 'FechaFinProgramacion' => $row[5],
                 'HorasProgramadas' => $row[6],
             ]);
-        }
+        });
     }
 }
